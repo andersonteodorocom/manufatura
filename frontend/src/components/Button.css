@@ -1,0 +1,46 @@
+/* --- Button Styles --- */
+.-btn {
+	padding: 10px 20px; /* Espaçamento interno */
+	border-radius: 8px; /* Cantos arredondados */
+	border: none; /* Sem borda */
+	cursor: pointer; /* Cursor de ponteiro */
+	font-family: inherit; /* Herda a fonte do elemento pai */
+	font-weight: 600; /* Negrito */
+	transition: opacity 0.2s; /* Transição suave para opacidade */
+}
+
+.-btn-primary {
+	background-color: var(--primary); /* Cor de fundo primária */
+	color: white; /* Cor do texto branca */
+}
+
+.-btn-alert {
+	background-color: var(--alert); /* Cor de fundo de alerta */
+	color: #000; /* Cor do texto preta */
+}
+
+.-btn-success {
+	background-color: var(--success); /* Cor de fundo de sucesso */
+	color: #000; /* Cor do texto preta */
+}
+
+.-btn-secondary {
+	background-color: var(--secondary); /* Cor de fundo secundária */
+	color: white; /* Cor do texto branca */
+}
+
+.-btn-danger {
+	background-color: var(--secondary); /* Usa a cor secondary como danger */
+	color: white;
+}
+
+.-btn:active,
+.-btn:hover {
+	opacity: 0.8; /* Reduz a opacidade ao clicar ou passar o mouse */
+}
+
+.-btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+/* ...adicione aqui apenas estilos do Button... */

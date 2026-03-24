@@ -1,0 +1,29 @@
+/* --- Hamburger Button Styles --- */
+
+.hamburger-btn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 100;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background 0.2s;
+}
+
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hamburger-btn.hidden {
+    display: none;
+  }
+}

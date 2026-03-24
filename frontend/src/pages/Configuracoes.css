@@ -1,0 +1,130 @@
+/* --- Configuracoes Styles --- */
+/* Seguindo o padrão de cores do EmitirNfse */
+
+.configuracoes-container {
+  width: 100%;
+}
+
+/* Header */
+.configuracoes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.configuracoes-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.configuracoes-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.configuracoes-acoes {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Mensagem - usa componente FeedbackMessage */
+
+/* Formulário */
+.form-configuracoes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Aviso de dados fixos */
+.config-aviso {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  color: #1d4ed8;
+}
+
+.config-aviso span {
+  font-size: 1.2rem;
+}
+
+.config-aviso p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.form-section {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  overflow: visible;
+  position: relative;
+}
+
+.form-section legend {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--primary);
+  padding: 0 0.75rem;
+  background-color: var(--background-card);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  overflow: visible;
+}
+
+.form-row:last-child {
+  margin-bottom: 0;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+}
+
+.form-group.flex-2 {
+  flex: 2;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .configuracoes-header {
+    flex-direction: column;
+  }
+
+  .configuracoes-acoes {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .configuracoes-acoes button {
+    width: 100%;
+  }
+
+  .form-group {
+    min-width: 100%;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}

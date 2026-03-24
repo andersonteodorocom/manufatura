@@ -1,0 +1,250 @@
+/* --- Calendar Picker Styles --- */
+
+.calendar-picker {
+  position: relative;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.calendar-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+  opacity: 0.8;
+}
+
+/* Trigger Button */
+.calendar-trigger {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: white;
+  border: 1px solid var(--border-form);
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.calendar-trigger:hover {
+  border-color: var(--primary);
+  background-color: var(--background);
+}
+
+.calendar-trigger.active {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(96, 91, 255, 0.1);
+}
+
+.calendar-trigger.has-value {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.calendar-value {
+  flex: 1;
+}
+
+.calendar-icon {
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+/* Popup do Calendário */
+.calendar-popup {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background-color: white;
+  border: 1px solid var(--border-form);
+  border-radius: 16px;
+  z-index: 9999;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12), 
+              0 2px 6px rgba(0, 0, 0, 0.04);
+  animation: calendarFadeIn 0.15s ease-out;
+  padding: 16px;
+  min-width: 300px;
+}
+
+@keyframes calendarFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header com navegação */
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-form);
+}
+
+.calendar-nav {
+  display: flex;
+  gap: 4px;
+}
+
+.calendar-nav-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: all 0.15s ease;
+}
+
+.calendar-nav-btn:hover {
+  background-color: var(--background);
+  color: var(--primary);
+}
+
+.calendar-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+}
+
+/* Dias da semana */
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.calendar-weekday {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 4px;
+  text-transform: uppercase;
+}
+
+/* Grade de dias */
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendar-day {
+  width: 100%;
+  aspect-ratio: 1;
+  border: none;
+  background-color: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-day:hover {
+  background-color: var(--background);
+}
+
+.calendar-day.other-month {
+  color: var(--border-light);
+}
+
+.calendar-day.other-month:hover {
+  color: var(--text-muted);
+}
+
+.calendar-day.today {
+  background-color: var(--background);
+  color: var(--primary);
+  font-weight: 600;
+  position: relative;
+}
+
+.calendar-day.today::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--primary);
+}
+
+.calendar-day.selected {
+  background-color: var(--primary);
+  color: white;
+}
+
+.calendar-day.selected:hover {
+  background-color: var(--primary);
+  opacity: 0.9;
+}
+
+.calendar-day.selected.today::after {
+  background-color: white;
+}
+
+/* Footer */
+.calendar-footer {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-form);
+  display: flex;
+  justify-content: center;
+}
+
+.calendar-today-btn {
+  padding: 8px 20px;
+  border: none;
+  background-color: var(--background);
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+  transition: all 0.15s ease;
+}
+
+.calendar-today-btn:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .calendar-popup {
+    min-width: auto;
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+}

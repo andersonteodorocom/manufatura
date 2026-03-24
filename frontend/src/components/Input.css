@@ -1,0 +1,122 @@
+/* --- Input Styles --- */
+
+.input-wrapper {
+	margin-bottom: 16px;
+	display: flex;
+	flex-direction: column;
+}
+
+.input-label {
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--text);
+	margin-bottom: 6px;
+	opacity: 0.8;
+}
+
+.input-field {
+	padding: 12px 16px;
+	font-size: 14px;
+	font-family: inherit;
+	border-radius: 12px;
+	border: 1px solid var(--bg-input);
+	background-color: var(--bg-input);
+	outline: none;
+	transition: border-color 0.2s;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.input-field:focus {
+	border-color: var(--primary);
+}
+
+/* Date input */
+.input-field[type="date"],
+.input-field[type="datetime-local"],
+.input-field[type="time"] {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	position: relative;
+	color: var(--text);
+	min-height: 44px;
+}
+
+.input-field[type="date"]::-webkit-calendar-picker-indicator,
+.input-field[type="datetime-local"]::-webkit-calendar-picker-indicator,
+.input-field[type="time"]::-webkit-calendar-picker-indicator {
+	cursor: pointer;
+	opacity: 0.5;
+	filter: invert(0.3);
+	padding: 4px;
+	border-radius: 4px;
+	transition: opacity 0.2s;
+}
+
+.input-field[type="date"]::-webkit-calendar-picker-indicator:hover,
+.input-field[type="datetime-local"]::-webkit-calendar-picker-indicator:hover,
+.input-field[type="time"]::-webkit-calendar-picker-indicator:hover {
+	opacity: 0.8;
+	background-color: var(--background);
+}
+
+.input-field[type="date"]::-webkit-datetime-edit,
+.input-field[type="datetime-local"]::-webkit-datetime-edit,
+.input-field[type="time"]::-webkit-datetime-edit {
+	font-family: inherit;
+	font-size: 14px;
+	color: var(--text);
+}
+
+.input-field[type="date"]::-webkit-datetime-edit-fields-wrapper,
+.input-field[type="datetime-local"]::-webkit-datetime-edit-fields-wrapper,
+.input-field[type="time"]::-webkit-datetime-edit-fields-wrapper {
+	padding: 0;
+}
+
+.input-field[type="date"]::-webkit-datetime-edit-day-field,
+.input-field[type="date"]::-webkit-datetime-edit-month-field,
+.input-field[type="date"]::-webkit-datetime-edit-year-field,
+.input-field[type="datetime-local"]::-webkit-datetime-edit-day-field,
+.input-field[type="datetime-local"]::-webkit-datetime-edit-month-field,
+.input-field[type="datetime-local"]::-webkit-datetime-edit-year-field,
+.input-field[type="time"]::-webkit-datetime-edit-hour-field,
+.input-field[type="time"]::-webkit-datetime-edit-minute-field {
+	padding: 2px 4px;
+	border-radius: 4px;
+}
+
+.input-field[type="date"]::-webkit-datetime-edit-day-field:focus,
+.input-field[type="date"]::-webkit-datetime-edit-month-field:focus,
+.input-field[type="date"]::-webkit-datetime-edit-year-field:focus,
+.input-field[type="datetime-local"]::-webkit-datetime-edit-day-field:focus,
+.input-field[type="datetime-local"]::-webkit-datetime-edit-month-field:focus,
+.input-field[type="datetime-local"]::-webkit-datetime-edit-year-field:focus,
+.input-field[type="time"]::-webkit-datetime-edit-hour-field:focus,
+.input-field[type="time"]::-webkit-datetime-edit-minute-field:focus {
+	background-color: var(--primary);
+	color: white;
+	outline: none;
+}
+
+/* Textarea (multiline) */
+.input-textarea {
+	resize: vertical;
+	min-height: 60px;
+	line-height: 1.5;
+}
+
+.char-count {
+	display: block;
+	text-align: right;
+	font-size: 0.75rem;
+	color: var(--text-muted);
+	margin-top: 4px;
+}
+
+.char-count.insuficiente {
+	color: var(--color-danger);
+}
+
+/* ...adicione aqui apenas estilos do Input... */

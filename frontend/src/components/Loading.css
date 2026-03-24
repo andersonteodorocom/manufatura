@@ -1,0 +1,151 @@
+/* Container de loading inline (dentro de cards) */
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  min-height: 200px;
+}
+
+/* Loading em tela cheia (overlay) */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Conteúdo do loading */
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Container das bolhas */
+.loading-bubbles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 60px;
+}
+
+/* Bolha individual */
+.bubble {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, var(--primary) 0%, #764ba2 100%);
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out;
+  box-shadow: 0 4px 8px rgba(96, 91, 255, 0.3);
+}
+
+/* Delay nas animações das bolhas */
+.bubble:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.bubble:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.bubble:nth-child(3) {
+  animation-delay: 0s;
+}
+
+/* Animação de bounce das bolhas */
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0.6) translateY(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1) translateY(-20px);
+    opacity: 1;
+  }
+}
+
+/* Mensagem de loading */
+.loading-message {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.5px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Variante com tema escuro (para modais escuros) */
+.loading-overlay.dark {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.loading-overlay.dark .loading-message {
+  color: #fff;
+}
+
+/* Variante pequena (para botões ou componentes menores) */
+.loading-small {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.loading-small .loading-bubbles {
+  gap: 6px;
+  height: 20px;
+}
+
+.loading-small .bubble {
+  width: 8px;
+  height: 8px;
+}
+
+.loading-small .loading-message {
+  font-size: 12px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .loading-container {
+    padding: 30px 15px;
+    min-height: 150px;
+  }
+
+  .bubble {
+    width: 14px;
+    height: 14px;
+  }
+
+  .loading-message {
+    font-size: 13px;
+  }
+}

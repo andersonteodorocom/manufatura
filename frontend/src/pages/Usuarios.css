@@ -1,0 +1,183 @@
+/* --- Usuarios Styles --- */
+/* Seguindo o padrão de cores do EmitirNfse */
+
+.usuarios-container {
+  width: 100%;
+}
+
+.usuarios-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.usuarios-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.usuarios-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Filtros */
+.usuarios-filtros {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filtro-grupo {
+  position: relative;
+}
+
+/* Tabela */
+.usuarios-table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Scroll suave em iOS */
+}
+
+/* Info do Usuário */
+.usuario-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0; /* Permite que os elementos filhos encolham se necessário */
+}
+
+.usuario-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.usuario-nome {
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.usuario-email {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Cargo */
+.usuario-cargo {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  background-color: var(--background);
+  border: 1px solid var(--border-form);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Status */
+.usuario-status {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.usuario-status.ativo {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.usuario-status.inativo {
+  background-color: var(--color-neutral-bg);
+  color: var(--color-neutral);
+}
+
+/* Ações */
+.usuarios-acoes {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* Ações - usa componente ActionButton */
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .usuarios-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .usuarios-header button {
+    width: 100%;
+  }
+
+  .usuarios-filtros {
+    grid-template-columns: 1fr;
+  }
+
+  .usuarios-acoes {
+    justify-content: flex-start;
+  }
+
+  .usuario-info {
+    flex-direction: row;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .usuario-info > div {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .usuario-nome,
+  .usuario-email {
+    max-width: 100%;
+  }
+
+  /* Ajusta o layout da tabela em modo card no mobile */
+  .usuarios-table-container .custom-table td {
+    word-break: break-word;
+  }
+
+  .usuarios-table-container .custom-table td[data-label="Usuário"] {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+
+  .usuarios-table-container .custom-table td[data-label="Usuário"]::before {
+    margin-bottom: 0.5rem;
+    align-self: flex-start;
+  }
+
+  .usuarios-table-container .custom-table td[data-label="Usuário"] .usuario-info {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .usuarios-table-container .custom-table td[data-label="Usuário"] .usuario-info > div:last-child {
+    text-align: right;
+  }
+}

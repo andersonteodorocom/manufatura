@@ -1,0 +1,48 @@
+/* --- ActionButton Component Styles --- */
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  padding: 0;
+}
+
+.action-btn:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.action-btn.action-delete:hover,
+.action-btn.action-cancel:hover {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.action-btn.action-edit:hover {
+  background: var(--color-warning);
+  border-color: var(--color-warning);
+}
+
+.acoes-cell {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-secondary);
+}

@@ -1,0 +1,229 @@
+.pedido-impressao-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  min-height: 100vh;
+}
+
+.print-controls {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.btn-print {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-print:hover {
+  background-color: #333;
+}
+
+.print-tip {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #555;
+}
+
+.a4-page {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  padding: 15mm;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  color: #000;
+  font-size: 12px;
+}
+
+.page-header {
+  text-align: center;
+  border-bottom: 2px solid #000;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-header h1 {
+  font-size: 20px;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pedido-info p {
+  margin: 2px 0;
+  font-size: 12px;
+}
+
+.info-section {
+  border: 1px solid #000;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.info-section h2 {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.info-grid p {
+  margin: 4px 0;
+}
+
+.info-grid strong {
+  display: inline-block;
+  min-width: 120px;
+}
+
+.itens-section {
+  margin-bottom: 20px;
+}
+
+.itens-section h2 {
+  font-size: 14px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  padding-bottom: 4px;
+}
+
+.print-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.print-table th, .print-table td {
+  border: 1px solid #000;
+  padding: 6px;
+}
+
+.print-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.total-value {
+  font-size: 14px;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.pagamento-box, .observacao-box {
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.pagamento-box h2, .observacao-box h2 {
+  font-size: 12px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.print-input {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.textarea-obs {
+  resize: vertical;
+}
+
+.print-only-text {
+  display: none;
+}
+
+.signatures {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.signature-line {
+  width: 40%;
+  border-top: 1px solid #000;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 12px;
+}
+
+/* Regras de Impressão */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+  
+  body * {
+    visibility: hidden;
+  }
+  
+  .a4-page, .a4-page * {
+    visibility: visible;
+  }
+  
+  .a4-page {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+  
+  .print-content {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-input {
+    display: none !important;
+  }
+  
+  .print-only-text {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  .print-table th {
+    background-color: #e6e6e6 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

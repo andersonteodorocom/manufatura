@@ -1,0 +1,83 @@
+/* --- Table Styles --- */
+
+.table-responsive {
+	width: 100%;
+	overflow-x: auto; /* Permite rolagem horizontal no mobile */
+}
+
+.custom-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 10px;
+	min-width: 600px; /* Garante que a tabela mantenha o formato e force o scroll se necessário */
+}
+
+.custom-table th, 
+.custom-table td {
+	padding: 12px;
+	text-align: left;
+	border-bottom: 1px solid var(--border-color); /* Linha de separação entre linhas */
+}
+
+/* Estilo específico para o cabeçalho da tabela */
+.custom-table th {
+	border-bottom: 2px solid var(--border-color);
+	font-weight: 600;
+}
+
+/* Alinha a última coluna (Ações) à direita */
+.custom-table th:last-child,
+.custom-table td:last-child {
+	text-align: right;
+}
+
+@media (max-width: 768px) {
+	/* --- TABELA EM MODO CARD (Mobile) --- */
+	.custom-table {
+		min-width: 0; /* Remove a largura mínima para caber na tela */
+	}
+
+	.custom-table thead {
+		display: none; /* Esconde o cabeçalho tradicional */
+	}
+
+	.custom-table tr {
+		display: block; /* Cada linha vira um "card" */
+		margin-bottom: 16px; /* Espaçamento entre os "cards" */
+		border: 1px solid var(--border-color); /* Borda ao redor de cada "card" */
+		border-radius: 12px; /* Cantos arredondados */
+		background-color: white; /* Fundo branco para cada "card" */
+		box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Sombra suave */
+		overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites */
+	}
+
+	.custom-table td {
+		display: flex; /* Transforma cada célula em um flex container */
+		justify-content: space-between; /* Espaça os itens */
+		align-items: center; /* Centraliza verticalmente */
+		border-bottom: 1px solid var(--border-light); /* Linha de separação entre células */
+		padding: 12px 16px; /* Espaçamento interno */
+		text-align: right; /* Alinha o conteúdo à direita */
+		min-width: 0; /* Permite que os elementos encolham se necessário */
+		overflow: hidden; /* Previne overflow */
+	}
+
+	.custom-table td:last-child { border-bottom: none; }
+
+	.custom-table td::before {
+		content: attr(data-label); /* Pega o nome da coluna automaticamente */
+		font-weight: 600; /* Negrito para o label */
+		margin-right: auto; /* Empurra o label para a esquerda */
+		color: var(--text); /* Cor do texto do label */
+		flex-shrink: 0; /* Impede que o label encolha */
+		margin-right: 1rem; /* Espaçamento entre label e conteúdo */
+	}
+
+	/* Garante que o conteúdo do valor não ultrapasse os limites */
+	.custom-table td > * {
+		max-width: 100%;
+		overflow: hidden;
+	}
+}
+
+/* ...adicione aqui apenas estilos do Table... */

@@ -1,0 +1,33 @@
+/* --- Card Styles --- */
+
+.shadow-xl {
+	box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Sombra suave */
+}
+
+.card-content {
+	background-color: var(--background-card); /* Cor de fundo do card */
+	padding: 24px; /* Espaçamento interno */
+	padding-bottom: 34px; /* Espaço extra para o título */
+	border: 1px solid var(--custom-border); /* Borda personalizada */
+	border-radius: 26px; /* Cantos arredondados */
+	margin-bottom: 24px; /* Espaçamento externo */
+	box-sizing: border-box;
+	width: 100%;
+	overflow: visible;
+}
+
+@media (max-width: 768px) {
+	.card-content {
+		padding: 16px;
+		padding-bottom: 24px;
+		border-radius: 16px;
+	}
+}
+
+.card-title {
+	font-weight: 600; /* Negrito */
+	margin-bottom: 24px; /* Espaçamento abaixo do título */
+}
+
+/* ...adicione aqui apenas estilos do Card... */
+
