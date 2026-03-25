@@ -5,6 +5,8 @@ const statusConfig = {
   cancelado: { label: "Cancelada", variant: "neutral" },
   processando_autorizacao: { label: "Processando", variant: "warning" },
   erro_autorizacao: { label: "Erro", variant: "danger" },
+  PENDENTE: { label: "Pendente", variant: "warning" },
+  FINALIZADO: { label: "Finalizado", variant: "success" },
 };
 
 export const StatusBadge = ({ status, label }) => {

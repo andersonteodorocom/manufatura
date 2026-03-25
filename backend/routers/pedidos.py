@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from typing import List
+from typing import List, Optional
 from datetime import datetime, timedelta
 
 from database import get_db
@@ -10,6 +10,13 @@ router = APIRouter(
     prefix="/pedidos",
     tags=["pedidos"],
 )
+
+@router.get("/", response_model=List[schemas.Pedido])
+def listar_pedidos(tipo: Optional[models.TipoPedido] = None, skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    query = db.query(models.Pedido)
+    if tipo:
+        query = query.filter(models.Pedido.tipo == tipo)
+    return query.order_by(models.Pedido.data.desc()).offset(skip).limit(limit).all()
 
 @router.post("/", response_model=schemas.Pedido)
 def criar_pedido(pedido: schemas.PedidoCreate, db: Session = Depends(get_db)):

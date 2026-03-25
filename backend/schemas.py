@@ -102,3 +102,13 @@ class Financeiro(FinanceiroBase):
 class OrdemProducao(BaseModel):
     produto_id: int
     quantidade: float
+
+class ProducaoLog(BaseModel):
+    id: int
+    produto_id: int
+    quantidade: float
+    data: datetime
+    produto: Optional[Produto] = None
+
+    class Config:
+        from_attributes = True

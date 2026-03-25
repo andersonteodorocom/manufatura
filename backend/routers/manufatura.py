@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+from typing import List
 
 from database import get_db
 import models, schemas
@@ -8,6 +9,10 @@ router = APIRouter(
     prefix="/manufatura",
     tags=["manufatura"],
 )
+
+@router.get("/logs", response_model=List[schemas.ProducaoLog])
+def listar_producao(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    return db.query(models.ProducaoLog).order_by(models.ProducaoLog.data.desc()).offset(skip).limit(limit).all()
 
 @router.post("/produzir")
 def registrar_producao(ordem: schemas.OrdemProducao, db: Session = Depends(get_db)):
@@ -36,6 +41,10 @@ def registrar_producao(ordem: schemas.OrdemProducao, db: Session = Depends(get_d
         peca.estoque -= (componente.quantidade * ordem.quantidade)
     
     produto_final.estoque += ordem.quantidade
+
+    # Salva o log
+    log = models.ProducaoLog(produto_id=ordem.produto_id, quantidade=ordem.quantidade)
+    db.add(log)
 
     db.commit()
     return {"message": f"Produção de {ordem.quantidade} unidades de {produto_final.nome} realizada com sucesso"}

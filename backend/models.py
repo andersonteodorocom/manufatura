@@ -118,3 +118,13 @@ class Financeiro(Base):
     status = Column(Enum(StatusFinanceiro), default=StatusFinanceiro.ABERTO)
 
     pedido = relationship("Pedido", back_populates="financeiro")
+
+class ProducaoLog(Base):
+    __tablename__ = "producao_logs"
+
+    id = Column(Integer, primary_key=True, index=True)
+    produto_id = Column(Integer, ForeignKey("produtos.id"))
+    quantidade = Column(Float)
+    data = Column(DateTime, default=datetime.utcnow)
+
+    produto = relationship("Produto")

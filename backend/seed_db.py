@@ -12,7 +12,8 @@ from models import (
     EstruturaProduto,
     Pedido, TipoPedido, StatusPedido,
     ItemPedido,
-    Financeiro, TipoFinanceiro, StatusFinanceiro
+    Financeiro, TipoFinanceiro, StatusFinanceiro,
+    Usuario
 )
 
 def seed_database():
@@ -167,12 +168,20 @@ def seed_database():
         db.add(fin_venda)
         db.commit()
 
+        # 7. Criar Usuário (Admin)
+        admin = db.query(Usuario).filter_by(username="admin").first()
+        if not admin:
+            admin = Usuario(username="admin", senha="password123", nome="Administrador")
+            db.add(admin)
+            db.commit()
+
         print("Banco de dados populado com sucesso!")
         print("Foram inseridos:")
         print(f"- {db.query(Parceiro).count()} Parceiros (Clientes/Fornecedores)")
         print(f"- {db.query(Produto).count()} Produtos (Peças/Produtos Finais)")
         print(f"- {db.query(EstruturaProduto).count()} Itens de Estrutura (BOM)")
         print(f"- {db.query(Pedido).count()} Pedidos (Compra/Venda)")
+        print(f"- {db.query(Usuario).count()} Usuários")
 
     except Exception as e:
         print(f"Ocorreu um erro ao popular o banco de dados: {e}")

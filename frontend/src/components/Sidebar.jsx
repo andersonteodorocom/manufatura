@@ -21,7 +21,7 @@ export const Sidebar = ({ onLinkClick }) => {
           Manufatura ERP
         </h2>
         {usuario && (
-          <span className="sidebar-user">{usuario}</span>
+          <span className="sidebar-user">{usuario.nome}</span>
         )}
         <hr className="sidebar-divider" />
       </div>
@@ -43,9 +43,9 @@ export const Sidebar = ({ onLinkClick }) => {
           <Package size={20} className="sidebar-icon" /> Produção
         </Link>
 
-        <Link to="/config" className={`sidebar-link ${isActive("/config") ? "active" : ""}`} onClick={onLinkClick}>
+        {/* <Link to="/config" className={`sidebar-link ${isActive("/config") ? "active" : ""}`} onClick={onLinkClick}>
           <Settings size={20} className="sidebar-icon" /> Configurações
-        </Link>
+        </Link> */}
 
         <hr className="sidebar-divider" />
 
